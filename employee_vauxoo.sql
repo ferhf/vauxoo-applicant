@@ -37,3 +37,41 @@ INSERT INTO employee VALUES
 (3, 'Michael', 'Davis', 4);
 INSERT INTO employee VALUES
 (4, 'Chloe', 'Johnson', 6);
+
+
+CREATE TABLE employee_hobby (
+    id INTEGER CONSTRAINT em_hopkey PRIMARY KEY, 
+    name VARCHAR(80), 
+    description VARCHAR(200)
+);
+
+CREATE TABLE employee_hobby_employee (
+    id_employee INTEGER REFERENCES employee (id), 
+    id_hobby INTEGER REFERENCES employee_hobby (id) ON DELETE RESTRICT
+);
+
+INSERT INTO employee_hobby VALUES
+(1, 'Ver peliculas', 'Ver peliculas en línea.');
+INSERT INTO employee_hobby VALUES
+(2, 'Jugar videojuegos', 'Jugar con consola, en celular o computadora en o fuera de linea.');
+INSERT INTO employee_hobby VALUES
+(3, 'Caminar', 'Salir y disfrutar del camino.');
+
+INSERT INTO employee_hobby_employee VALUES
+(1, 1);
+INSERT INTO employee_hobby_employee VALUES
+(1, 3);
+INSERT INTO employee_hobby_employee VALUES
+(2, 2);
+INSERT INTO employee_hobby_employee VALUES
+(2, 3);
+INSERT INTO employee_hobby_employee VALUES
+(3, 1);
+INSERT INTO employee_hobby_employee VALUES
+(3, 2);
+INSERT INTO employee_hobby_employee VALUES
+(4, 1);
+INSERT INTO employee_hobby_employee VALUES
+(4, 2);
+
+
