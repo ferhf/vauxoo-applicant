@@ -7,8 +7,8 @@ Script to test python scripts for applicant project
 
 import unittest
 
-from calculator import CalculatorClass
-from primes import PrimeClass
+from calculator import calculator_class
+from primes import prime_class
 
 
 class TestApplicantPython(unittest.TestCase):
@@ -20,27 +20,27 @@ class TestApplicantPython(unittest.TestCase):
         """
         Method init of global unittest class
         """
-        self.obj_calculator = CalculatorClass()
-        self.obj_prime = PrimeClass()
+        self.obj_calculator = calculator_class()
+        self.obj_prime = prime_class()
 
     def test_10_sum(self):
         """
         UnitTest method to check sum method
         """
-        print "start test:" + \
-            self.test_10_sum.__doc__
+        print("start test:" + \
+            self.test_10_sum.__doc__)
         mysum = self.obj_calculator.sum([1, 2, 3, 4, 5, 6])
         if mysum != 'not implement yet':
             self.assertEqual(mysum, 21, 'incorrect sum method')
-        print "end test:" + \
-            self.test_10_sum.__doc__
+        print("end test:" + \
+            self.test_10_sum.__doc__)
 
     def test_20_primes(self):
         """
         UnitTest method to check primes method
         """
-        print "start test:" + \
-            self.test_20_primes.__doc__
+        print("start test:" + \
+            self.test_20_primes.__doc__)
         if self.obj_prime.is_prime(0) != 'not implement yet':
             primes_result = all(
                 [
@@ -67,8 +67,8 @@ class TestApplicantPython(unittest.TestCase):
                 no_primes_result,
                 True,
                 'incorrect prime method with not primes numbers')
-        print "end test:" + \
-            self.test_20_primes.__doc__
+        print("end test:" + \
+            self.test_20_primes.__doc__)
 
 
 if __name__ == '__main__':
